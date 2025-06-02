@@ -10,7 +10,7 @@ useEffect(() => {
   return (
     <div>
     {!backendData ? (
-      <p>Loading...</p>
+      <p className=''>Loading...</p>
     ) : (
       <div>
         <h1>Users:</h1>
