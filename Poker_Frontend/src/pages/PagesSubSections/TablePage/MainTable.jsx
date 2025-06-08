@@ -12,7 +12,7 @@ export class MainTable extends Component {
     ];
     let potValue = 500;
     return (
-      <div className="h-[65%] border-2 rounded-tr-lg  border-l-0 border-[#8db48e] flex flex-col justify-center gap-3 items-center w-full bg-[url(/poker_table.webp)] bg-center bg-size-[100%] bg-no-repeat">
+      <div className="p-6 h-[65%] border-2 rounded-tr-lg  border-l-0 border-[#8db48e] flex flex-col justify-center gap-3 items-center w-full bg-[url(/poker_table.webp)] bg-center bg-size-[95%] bg-no-repeat">
         <p className="text-xl font-semibold text-white">
           Pot Amount : <span className="text-white">${potValue}</span>
         </p>
