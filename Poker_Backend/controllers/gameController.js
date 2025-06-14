@@ -1,5 +1,14 @@
-exports.startGame = (req, res) => {
-  // Initialize game state, shuffle deck, assign dealer
-  // Broadcast to players in lobby
-  res.status(200).json({ message: 'Game started' });
+import { generateDeck } from "../services/deckGenerator.js";
+import { createPlayers } from "../services/playerGenerator.js";
+
+export const startGame = (req, res) => {
+  const deck = generateDeck();
+  const players = createPlayers(deck);
+  res
+    .status(200)
+    .json({
+      message: "Game started",
+      deckSize: deck.length,
+      allPlayers: players,
+    });
 };

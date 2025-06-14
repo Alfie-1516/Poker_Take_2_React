@@ -4,25 +4,24 @@ import Card from "../../../components/card";
 export class AllPlayersInfoUI extends Component {
   render() {
     const { playerInfo } = this.props;
+    console.log("This is teh player in UI", playerInfo);
     return (
       <div className="h-1/5 flex pt-2 pb-2 justify-between ">
         <div className=" w-2/5 h-full">
-          <p className="text-xl font-semibold">{playerInfo.playerName}</p>
+          <p className="text-xl font-semibold">{playerInfo.name}</p>
           <p>
             Chip Bank:{" "}
-            <span className="text-[#4d724d]">${playerInfo.playerChip}</span>
+            <span className="text-[#4d724d]">${playerInfo.chips}</span>
           </p>
           <p>
             Round Bet:{" "}
-            <span className="text-[#ca6161]">
-              -${playerInfo.playerRoundBet}
-            </span>
+            <span className="text-[#ca6161]">-${playerInfo.bet}</span>
           </p>
           <p>Status:{playerInfo.playerStatus}</p>
         </div>
         <div className=" w-3/5 h-full flex justify-evenly">
-          <Card cardImage={playerInfo.playerCard1} />
-          <Card cardImage={playerInfo.playerCard2} />
+          <Card cardImage={playerInfo.hand[0]} />
+          <Card cardImage={playerInfo.hand[1]} />
         </div>
       </div>
     );

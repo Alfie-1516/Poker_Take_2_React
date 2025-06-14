@@ -1,7 +1,9 @@
-import express from 'express';
-import gameController from '../controllers/gameController.js'; // Adjust the path as necessary
+import express from "express";
+import { startGame } from "../controllers/gameController.js";
+import { startBetting } from "../controllers/bettingController.js";
 const router = express.Router();
 
-router.post('/start', gameController.startGame);
+router.get("/startGame", startGame);
+router.get("/startBetting", startBetting);
 
 export default router;
