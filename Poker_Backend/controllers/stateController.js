@@ -1,5 +1,9 @@
+import { getCurrentGameState } from "../utils/stateManager.js";
+
 export const gameState = (req, res) => {
+  let state = getCurrentGameState();
   res.status(200).json({
-    message: "player 1",
+    message: "retrivedMessage ",
+    state: { state },
   });
 };

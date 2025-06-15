@@ -73,18 +73,24 @@ export function Table() {
       out: false,
     },
   ]);
-  const [gameState, setGameState] = useState(null)
+  const [gameState, setGameState] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  async function fetchState() {
-    const response = await fetch("http://localhost:5001/api/game/gameState");
-    const data = await response.json();
-    setGameState(data.message)
-  }
-  fetchState();
-}, []);
+  useEffect(() => {
+    async function fetchState() {
+      const response = await fetch("http://localhost:5001/api/game/gameState");
+      const data = await response.json();
+      setGameState(data.state.state);
+      setLoading(false);
+    }
+    fetchState();
+  }, []);
 
   const otherPlayers = players.slice(1, 6);
+  if (loading) {
+    return <div>Loading...</div>; // or null
+  }
+
   return (
     <div className="p-4  h-[90vh] w-screen ">
       <main className=" h-full w-full flex ">
@@ -93,7 +99,10 @@ useEffect(() => {
           <MainTable />
           <div className="flex h-[35%] border-2 border-t-0 border-l-0 rounded-br-lg p-4 border-[#8db48e]">
             <MainPlayerUI mainPlayer={players[0]} />
-            <GameController setTempPlayers={setTempPlayers} gameState = {gameState} />
+            <GameController
+              setTempPlayers={setTempPlayers}
+              gameState={gameState}
+            />
           </div>
         </div>
       </main>

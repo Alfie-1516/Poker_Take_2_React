@@ -4,6 +4,7 @@
   "currentPlayerIndex": 0,
   "currentBet": 0,
   "round": 1,
+  "previousPlay": "play on ",
   "players": [
     {
       "id": 1,
