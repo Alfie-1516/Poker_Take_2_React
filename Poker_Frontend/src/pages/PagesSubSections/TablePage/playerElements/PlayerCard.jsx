@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-const cardImages = import.meta.glob(
-  "../../../../assets/Playing_Cards/SVG-cards-1.3/*.svg",
-  { eager: true, as: "url" }
-);
+
 
 export class PlayerCard extends Component {
   render() {
+    
     const { cardImage } = this.props;
-    const imagePath = `../../../../assets/Playing_Cards/SVG-cards-1.3/${cardImage}.svg`;
-    const imageUrl = cardImages[imagePath];
+    const imageUrl =`/SVG-cards-1.3/${cardImage}`;
     return (
-      <div className="w-2/5 h-full  ">
+      <div className="w-[50%] h-full  ">
         {imageUrl ? (
           <img
             src={imageUrl}

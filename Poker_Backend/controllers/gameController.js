@@ -8,7 +8,6 @@ export const startGame = (req, res) => {
     .status(200)
     .json({
       message: "Game started",
-      deckSize: deck.length,
       allPlayers: players,
     });
 };

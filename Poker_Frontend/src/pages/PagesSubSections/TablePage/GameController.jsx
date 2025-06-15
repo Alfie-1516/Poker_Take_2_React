@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import GameButtons from "../../../components/GameButtons";
 
-export function GameController({ setTempPlayers, temp_players }) {
+export function GameController({ setTempPlayers, temp_players, gameState }) {
   return (
     <div className="w-1/2 h-full flex flex-col justify-evenly ">
       <p className="text-xl font-semibold">Previous Plays</p>
-      <p>Player 1 goes all in </p>
+      <p>{gameState} </p>
       <p className="text-xl font-semibold">Place bet</p>
       <p>How much would you like to bet</p>
       <div className="flex justify-between">

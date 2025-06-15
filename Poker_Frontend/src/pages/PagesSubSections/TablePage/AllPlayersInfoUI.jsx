@@ -4,7 +4,6 @@ import Card from "../../../components/card";
 export class AllPlayersInfoUI extends Component {
   render() {
     const { playerInfo } = this.props;
-    console.log("This is teh player in UI", playerInfo);
     return (
       <div className="h-1/5 flex pt-2 pb-2 justify-between ">
         <div className=" w-2/5 h-full">

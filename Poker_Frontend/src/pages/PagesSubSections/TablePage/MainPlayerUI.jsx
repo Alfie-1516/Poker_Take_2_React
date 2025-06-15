@@ -6,11 +6,11 @@ import GameController from "./GameController";
 
 export function MainPlayerUI({ mainPlayer }) {
   return (
-    <div className="h-[35%] w-1/2 rounded-br-lg p-4 border-[#8db48e] bg-white flex border-2 border-t-0 border-l-0">
+    <div className="h-full w-[70%]   flex justify-between ">
       <PlayerInfo mainPlayer={mainPlayer} />
-      <div className="flex w-4/12 justify-evenly">
-        <PlayerCard cardImage={mainPlayer.playerCard1} />
-        <PlayerCard cardImage={mainPlayer.playerCard2} />
+      <div className="flex w-4/6  h-full justify-evenly gap-5 pr-4">
+        <PlayerCard cardImage={mainPlayer.hand[0]} />
+        <PlayerCard cardImage={mainPlayer.hand[1]} />
       </div>
     </div>
   );

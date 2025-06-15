@@ -73,30 +73,27 @@ export function Table() {
       out: false,
     },
   ]);
+  const [gameState, setGameState] = useState(null)
 
-  // You can now export or use altPlayers as needed);
-  // useEffect(() => {
-  //   console.log("this is the players", players);
-  // }, [temp_players]);
-  let mainPlayer = [
-    {
-      playerName: "Player 1",
-      playerChip: 2000,
-      playerRoundBet: 50,
-      playerStatus: "Active",
-      playerCard1: "2_of_clubs",
-      playerCard2: "2_of_diamonds",
-    },
-  ];
+useEffect(() => {
+  async function fetchState() {
+    const response = await fetch("http://localhost:5001/api/game/gameState");
+    const data = await response.json();
+    setGameState(data.message)
+  }
+  fetchState();
+}, []);
+
+  const otherPlayers = players.slice(1, 6);
   return (
     <div className="p-4  h-[90vh] w-screen ">
       <main className=" h-full w-full flex ">
-        <AllPlayersUI players={players} />
+        <AllPlayersUI players={otherPlayers} />
         <div className="w-3/4 h-full ">
           <MainTable />
-          <div className="flex">
-            <MainPlayerUI mainPlayer={mainPlayer[0]} />
-            <GameController setTempPlayers={setTempPlayers} />
+          <div className="flex h-[35%] border-2 border-t-0 border-l-0 rounded-br-lg p-4 border-[#8db48e]">
+            <MainPlayerUI mainPlayer={players[0]} />
+            <GameController setTempPlayers={setTempPlayers} gameState = {gameState} />
           </div>
         </div>
       </main>
